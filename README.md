@@ -22,7 +22,7 @@ if [ ${MLAT} ]; then
   while true
    do
     sleep 30
-    /usr/bin/mlat-client --input-type dump1090 --input-connect localhost:30005 --lat ${LATITUDE} --lon ${LONGITUDE} --alt ${ALTITUDE} --user ${AD$
+    /usr/bin/mlat-client --input-type dump1090 --input-connect localhost:30005 --lat ${LATITUDE} --lon ${LONGITUDE} --alt ${ALTITUDE} --user ${ADSBXNAME} --server ${MLATADSBXSERVER} --no-udp --results beast,connect,localhost:30104
   done
 else
   exit 0
@@ -47,7 +47,7 @@ while true
 while true
   do
     sleep 30
-sudo -u pi python3 /home/pi/.local/bin/dump1090exporter --url=http://localhost/dump1090/ --port=9105 --latitude=${LATITUDE} --longitude=${LONGITU$
+sudo -u pi python3 /home/pi/.local/bin/dump1090exporter --url=http://localhost/dump1090/ --port=9105 --latitude=${LATITUDE} --longitude=${LONGITUDE}
 done
 ```
 
