@@ -61,6 +61,16 @@ done
 /home/pi/adsbexchange-prom.sh &
 /home/pi/adsbexchange-dashx.sh &
 
+-Create config.txt in /home/pi/
+
+LATITUDE="<insert Lat>"
+LONGITUDE="<insert Lon>"
+ALTITUDE="<insert Alt>"
+ADSBXCUSTOMPORT="<insert port>"
+MLATADSBXSERVER="feed.adsbexchange.com:31090"
+ADSBXNAME="<give it a name>"
+ADSBXCUSTOMURL="feed.adsbexchange.com"
+MLAT=1
 
 
 
