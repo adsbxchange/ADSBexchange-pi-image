@@ -3,15 +3,16 @@ Raspbian setup for feeding ADSBexchange.com with 1090dump &amp; MLAT
 
 Quick and dirty from base Raspbian image.
 
-Install 1090 Dump Mutability
-Install MLAT Client
-Install 1090 Dump Exporter
-Install Grafana
-Install Prometheus
+###### Install 1090 Dump Mutability
+###### Install MLAT Client
+###### Install 1090 Dump Exporter
+###### Install Grafana
+###### Install Prometheus
 
+###### Configure 1090 Dump
 dpkg-reconfigure 1090dump-mutability
 
--Create adsbexchange-mlat_maint.sh in /home/pi 
+###### Create adsbexchange-mlat_maint.sh in /home/pi 
 
 #!/bin/sh
 . /home/pi/config.txt
@@ -25,8 +26,8 @@ else
   exit 0
 fi
 
--Create adsbexchange-netcat_maint.sh in /home/pi
-
+###### Create adsbexchange-netcat_maint.sh in /home/pi
+'''
 #!/bin/sh
 . /home/pi/config.txt
 
@@ -35,8 +36,8 @@ while true
     sleep 30
     /bin/nc 127.0.0.1 30005 | /bin/nc ${ADSBXCUSTOMURL} ${ADSBXCUSTOMPORT}
   done
-
--Create adsbexchange-dashx.sh in /home/pi
+'''
+###### Create adsbexchange-dashx.sh in /home/pi
 
 #!/bin/sh
 . /home/pi/config.txt
@@ -48,7 +49,7 @@ sudo -u pi python3 /home/pi/.local/bin/dump1090exporter --url=http://localhost/d
 done
 
 
--Create adsbexchange-prom.sh in /home/pi
+###### Create adsbexchange-prom.sh in /home/pi
 
 #!/bin/sh
 
@@ -61,7 +62,7 @@ done
 /home/pi/adsbexchange-prom.sh &
 /home/pi/adsbexchange-dashx.sh &
 
--Create config.txt in /home/pi/
+###### Create config.txt in /home/pi/
 
 LATITUDE="<insert Lat>"
 LONGITUDE="<insert Lon>"
